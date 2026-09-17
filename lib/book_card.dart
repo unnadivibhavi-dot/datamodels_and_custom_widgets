@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'book.dart';
 
 // TODO:
@@ -18,16 +19,14 @@ import 'book.dart';
 // 10. Use a Column to arrange the title and author.
 
 class BookCard extends StatelessWidget {
-
   // TODO: Create a final BookDetails variable
-
+  final BookDetails book;
 
   // TODO: Create the constructor
-
+  const BookCard({Key? key, required this.book}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     // TODO:
     // Return a Card containing:
     //
@@ -38,7 +37,28 @@ class BookCard extends StatelessWidget {
     // Text(book.title)
     // Text(book.author)
 
-    return Placeholder();
-
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0), // Standard padding
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start, // Left-aligns the text
+          mainAxisSize: MainAxisSize
+              .min, // Keeps the card tightly wrapped around the text
+          children: [
+            Text(
+              book.title,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 8,
+            ), // Adds a little space between title and author
+            Text(
+              book.author,
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

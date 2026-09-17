@@ -11,11 +11,12 @@
 // The constructor should use required named parameters.
 
 class BookDetails {
-
   // TODO: Create the title property
+  final String title;
 
   // TODO: Create the author property
-
+  final String author;
 
   // TODO: Create the constructor
+  const BookDetails({required this.title, required this.author});
 }
